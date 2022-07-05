@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Enocean_Devices xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="./ReCom_Device_Description_Schema.xsd" schemaVersion="1.3">
+  <Device Product_ID="0xFFFFFFFFFFFF">
+    <Name>ExampleSTM</Name>
+    <!-- Short Description of the Device, perhaps add here a bit more flexibility (compare to EEP descriptons) -->
+    <Description>This description could be a STM</Description>
+    <Firmware_Version>1.0</Firmware_Version>
+    <Hardware_Version>DA</Hardware_Version>
+    <Frequency>902</Frequency>
+    <TX>
+     <EURID>
+       <EEP LinkEntry="Outbound">
+         <Rorg>0xA5</Rorg>
+         <Func>0x02</Func>
+         <Type>0x20</Type>
+       </EEP>
+       <GP LinkEntry="Outbound">
+        <GP_TeachIN>0xFFF0004151863FC81480</GP_TeachIN>
+       </GP>
+	   <Signals>
+	    <MID>0x06</MID>
+	    <MID>0x0D</MID>
+	   </Signals>
+     </EURID>
+    </TX>
+    <!--  no RX -->
+    <Device_Parameters>
+     <RecomParameters>
+      <Param index="0" accessLevel="readWrite" recommendedUserLevel="user">
+       <Description>Wake Up Time, to check for temperature change</Description>
+       <Scaled>
+        <Length_In_Bytes>4</Length_In_Bytes>
+        <Default_Value>60000</Default_Value>
+        <Range>
+        <Min>0</Min>
+        <Max>4294967296</Max>
+        </Range>
+        <Scale>
+        <Min>0</Min>
+        <Max>4294967296</Max>
+        </Scale>
+        <Unit>ms</Unit>
+       </Scaled>
+      </Param>
+      <Param index="1" accessLevel="readWrite" recommendedUserLevel="user">
+       <Description>Keep Alive signal after x Wake Ups</Description>
+       <Enum>
+        <Default_Value>3</Default_Value>
+        <Length_In_Bytes>1</Length_In_Bytes>
+        <EnumList>
+         <Enum_Value index="0"><Description>1</Description></Enum_Value>
+         <Enum_Value index="1"><Description>2</Description></Enum_Value>
+         <Enum_Value index="2"><Description>3</Description></Enum_Value>
+         <Enum_Value index="3"><Description>4</Description></Enum_Value>
+         <Enum_Value index="4"><Description>10</Description></Enum_Value>
+         <Enum_Value index="5"><Description>20</Description></Enum_Value>
+         <Enum_Value index="6"><Description>Off</Description></Enum_Value>
+        </EnumList>
+       </Enum>
+      </Param>
+      <Param index="2" accessLevel="readWrite" recommendedUserLevel="user">
+       <Description>Send GP,EEP</Description>
+       <Enum>
+        <Default_Value>0</Default_Value>
+        <Length_In_Bytes>1</Length_In_Bytes>
+        <EnumList>
+         <Enum_Value index="0"><Description>EEP</Description></Enum_Value>
+         <Enum_Value index="1"><Description>GP</Description></Enum_Value>
+        </EnumList>
+       </Enum>
+      </Param>
+     </RecomParameters>
+    </Device_Parameters>
+  </Device>
+  <!-- No receiving, no recom -->
+</Enocean_Devices>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
