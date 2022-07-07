@@ -24,10 +24,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          cache: 'pip'
+      - run: pip install -r requirements.txt    
 
       # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Validate XML!
+      - name: Run XML validation
+        run: python validateXML.py
   
   validate-user:
     # The type of runner that the job will run on

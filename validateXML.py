@@ -1,3 +1,5 @@
+import os
+import sys
 from lxml import etree
 
 
@@ -12,8 +14,17 @@ def validate(xml_path: str, xsd_path: str) -> bool:
     return result
 
 
-if validate("./company-02/ddf-example-controller.xml", "./schema.xsd"):
-    print("Valid!")
-else:
-    print("Not vaild!")
-    
+rootdir = os.getcwd()
+#Durchlaueft das gesamte Repo und checkt alle .xml Dateien
+
+for subdir, dirs, files in os.walk(rootdir):
+    for file in files:
+        filepath = subdir + os.sep + file
+        if filepath.endswith('.xml'):
+            if validate(filepath, "./schema.xsd"):
+                print("Valid!")
+            else:
+                print("Not vaild!")
+                sys.exit(1)
+
+sys.exit(0)
