@@ -22,9 +22,9 @@ for subdir, dirs, files in os.walk(rootdir):
         filepath = subdir + os.sep + file
         if filepath.endswith('.xml'):
             if validate(filepath, "./schema.xsd"):
-                print("Valid!")
+                print(filepath + " valid!")
             else:
-                print("Not vaild!")
+                print(filepath + " not vaild!")
                 sys.exit(1)
 
 sys.exit(0)
